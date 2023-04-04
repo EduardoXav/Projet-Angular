@@ -1,43 +1,62 @@
 <div class="formRapport">
-    <h2>Nouveau rapport d'intervention</h2>
-    <form action="">
-        <div>
-            <label for="text">Nom du technicien</label><br>
-            <input type="text" name="nomTechnicien" id="nomTechnicien">
+    <section class="subForm saisieForm">
+        <h2>Nouveau rapport d'intervention</h2>
+        <form [formGroup]="formulaire">
+            <div>
+                <label for="text">Nom du technicien</label><br>
+                <input type="text" name="nomTechnicien" id="nomTechnicien" formControlName="nomTechnicien">
+            </div>
+            <div>
+                <label for="text">Nom du client</label><br>
+                <input type="text" name="nomClient" id="nomClient" formControlName="nomClient">
+            </div>
+            <div>
+                <label for="text">Adresse du client</label><br>
+                <input type="text" name="adresseClient" id="adresseClient" formControlName="adresseClient">
+            </div>
+            <div>
+                <label for="text">Marque et modèle de la chaudière</label><br>
+                <input type="text" name="marqueModeleChaudiere" id="marqueModeleChaudiere"
+                    formControlName="marqueModeleChaudiere">
+            </div>
+            <div>
+                <label for="text">Date de mise en service</label><br>
+                <input type="date" name="dateMiseEnService" id="dateMiseEnService" formControlName="dateMiseEnService">
+            </div>
+            <div>
+                <label for="text">Date de l'intervention</label><br>
+                <input type="date" name="dateIntervention" id="dateIntervention" formControlName="dateIntervention">
+            </div>
+            <div>
+                <label for="text">Numéro de série</label><br>
+                <input type="text" name="numeroSerie" id="numeroSerie" formControlName="numeroSerie">
+            </div>
+            <div>
+                <label for="text">Description de l'intervention</label><br>
+                <textarea name="descriptionIntervention" id="descriptionIntervention" cols="30" rows="10"
+                    formControlName="descriptionIntervention"></textarea>
+            </div>
+            <div>
+                <label for="text">Temps passé</label><br>
+                <input type="number" name="tempsPasse" id="tempsPasse" formControlName="tempsPasse">
+            </div>
+            <br>
+            <button type="submit">Ajouter le rapport</button>
+        </form>
+    </section>
+    <section class="vueForm">
+        <h2>Vue rapport</h2>
+        <div *ngIf="currentRapport$ | async as unRapport">
+            <h3>{{unRapport.nomTechnicien | uppercase}}</h3>
+            <p>Client : {{unRapport.nomClient}}</p>
+            <p>Adresse : {{unRapport.adresseClient}}</p>
+            <p>Marque et modele chaudière : {{unRapport.marqueModeleChaudiere}}</p>
+            <p>Date mise en service : {{unRapport.dateMiseEnService}}</p>
+            <p>Date intervention : {{unRapport.dateIntervention}}</p>
+            <p>Numéro de service : {{unRapport.numeroSerie}}</p>
+            <p>Description : {{unRapport.descriptionIntervention}}</p>
+            <p>Temps passé : {{unRapport.tempsPasse}}</p>
+
         </div>
-        <div>
-            <label for="text">Nom du client</label><br>
-            <input type="text" name="nomClient" id="nomClient">
-        </div>
-        <div>
-            <label for="text">Adresse du client</label><br>
-            <input type="text" name="adresseClient" id="adresseClient">
-        </div>
-        <div>
-            <label for="text">Marque et modèle de la chaudière</label><br>
-            <input type="text" name="marqueModeleChaudiere" id="marqueModeleChaudiere">
-        </div>
-        <div>
-            <label for="text">Date de mise en service</label><br>
-            <input type="date" name="dateMiseEnService" id="dateMiseEnService">
-        </div>
-        <div>
-            <label for="text">Date de l'intervention</label><br>
-            <input type="date" name="dateIntervention" id="dateIntervention">
-        </div>
-        <div>
-            <label for="text">Numéro de série</label><br>
-            <input type="text" name="numeroSerie" id="numeroSerie">
-        </div>
-        <div>
-            <label for="text">Description de l'intervention</label><br>
-            <textarea name="descriptionIntervention" id="descriptionIntervention" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            <label for="text">Temps passé</label><br>
-            <input type="number" name="tempsPasse" id="tempsPasse">
-        </div>
-        <br>
-        <button type="submit">Ajouter le rapport</button>
-    </form>
+    </section>
 </div>
