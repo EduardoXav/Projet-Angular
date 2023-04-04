@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { rapport } from './models/rapport';
+import { rapport } from '../models/rapport';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,19 @@ import { rapport } from './models/rapport';
 export class RapportsService {
 
   constructor() { }
+
+  getAllRapports(): rapport[] {
+    return this.getRapports();
+  }
+
+  getRapportsById(id: number): rapport {
+    const rapport = this.getAllRapports().find(rapport => rapport.id === id);
+    if(rapport){
+      return rapport;
+    } else {
+      throw new Error('Rapport introuvable');
+    }
+  }
 
   getRapports(): rapport[] {
 

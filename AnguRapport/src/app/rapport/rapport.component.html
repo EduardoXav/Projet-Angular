@@ -1,11 +1,14 @@
 <div class="rapport-card">
-    <h3>{{rapport.nomTechnicien | uppercase}}</h3>
-    <p>Client : {{rapport.nomClient}}</p>
-    <p>Adresse : {{rapport.adresseClient}}</p>
-    <p>Marque et modele chaudière : {{rapport.marqueModeleChaudiere}}</p>
-    <p>Date mise en service : {{rapport.dateMiseEnService}}</p>
-    <p>Date intervention : {{rapport.dateIntervention}}</p>
-    <p>Numéro de service : {{rapport.numeroSerie}}</p>
-    <p>Description : {{rapport.descriptionIntervention}}</p>
-    <p>Temps passé : {{rapport.tempsPasse}}</p>
+    <h3>{{theRapport.nomTechnicien | uppercase}}</h3>
+    <p>Client : {{theRapport.nomClient}}</p>
+    <p>Adresse : {{theRapport.adresseClient}}</p>
+    <p>Marque et modele chaudière : {{theRapport.marqueModeleChaudiere}}</p>
+    <p>Date mise en service : {{theRapport.dateMiseEnService}}</p>
+    <p>Date intervention : {{theRapport.dateIntervention}}</p>
+    <p>Numéro de service : {{theRapport.numeroSerie}}</p>
+    <p>Description : {{theRapport.descriptionIntervention}}</p>
+    <p>Temps passé : {{theRapport.tempsPasse}}</p>
+    <p>
+        <a routerLink="/rapport/{{theRapport.id}}" class="button"><button>Voir les détails</button></a>
+    </p>
 </div>
