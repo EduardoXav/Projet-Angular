@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NewRapportComponent } from './new-rapport/new-rapport.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { ListRapportComponent } from './list-rapport/list-rapport.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListRapportComponent } from './list-rapport/list-rapport.component';
     FooterComponent,
     NewRapportComponent,
     RapportComponent,
-    ListRapportComponent
+    ListRapportComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

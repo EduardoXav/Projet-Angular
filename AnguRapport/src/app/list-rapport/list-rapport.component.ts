@@ -16,7 +16,6 @@ export class ListRapportComponent implements OnInit{
 
   ngOnInit(): void {
     this.listRapport = this.myRapportsService.getRapports();
-
   }
 
 }
