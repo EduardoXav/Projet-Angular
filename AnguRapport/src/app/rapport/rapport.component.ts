@@ -10,5 +10,9 @@ export class RapportComponent implements OnInit{
 
   @Input() rapport!: rapport;
 
+  ngOnInit(): void {
+    console.log(this.rapport);
+  }
+
 
 }
