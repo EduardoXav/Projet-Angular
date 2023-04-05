@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { rapport } from '../models/rapport';
-import { Observable, map, pipe } from 'rxjs';
+import { Observable, map, pipe, tap } from 'rxjs';
+import { RapportsService } from '../services/rapports.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,14 +17,14 @@ export class NewRapportComponent implements OnInit {
 
   formulaire!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private rapportService:RapportsService, private router: Router) { }
 
   ngOnInit(): void {
 
     this.formulaire = this.formBuilder.group({
-      nomTechnicien: [null,[Validators.required, Validators.minLength(3)]],
-      nomClient: [null,[Validators.required, Validators.minLength(3)]],
-      adresseClient: [null,[Validators.required, Validators.minLength(3)]],
+      nomTechnicien: [null, [Validators.required, Validators.minLength(3)]],
+      nomClient: [null, [Validators.required, Validators.minLength(3)]],
+      adresseClient: [null, [Validators.required, Validators.minLength(3)]],
       marqueModeleChaudiere: [null, [Validators.required, Validators.minLength(3)]],
       dateMiseEnService: [null, [Validators.required, Validators.minLength(3)]],
       dateIntervention: [null, [Validators.required, Validators.minLength(3)]],
@@ -30,7 +32,7 @@ export class NewRapportComponent implements OnInit {
       descriptionIntervention: [null, [Validators.required, Validators.minLength(3)]],
       tempsPasse: [null, [Validators.required, Validators.minLength(1)]]
     }
-    ,{updateOn: 'blur'});
+      , { updateOn: 'blur' });
 
     this.currentRapport$ = this.formulaire.valueChanges.pipe(map(formValue => (
       {
@@ -48,4 +50,22 @@ export class NewRapportComponent implements OnInit {
     )));
   }
 
+  onSubmitForm() {
+    let newRapport: rapport = {
+      id: 0,
+      nomTechnicien: this.formulaire.get('nomTechnicien')?.value,
+      nomClient: this.formulaire.get('nomClient')?.value,
+      adresseClient: this.formulaire.get('adresseClient')?.value,
+      marqueModeleChaudiere: this.formulaire.get('marqueModeleChaudiere')?.value,
+      dateMiseEnService: this.formulaire.get('dateMiseEnService')?.value,
+      dateIntervention: this.formulaire.get('dateIntervention')?.value,
+      numeroSerie: this.formulaire.get('numeroSerie')?.value,
+      descriptionIntervention: this.formulaire.get('descriptionIntervention')?.value,
+      tempsPasse: this.formulaire.get('tempsPasse')?.value
+    };
+
+    this.rapportService.addRapport(newRapport).pipe(
+      tap(() => this.router.navigateByUrl('/releves'))
+    ).subscribe();
+  }
 }

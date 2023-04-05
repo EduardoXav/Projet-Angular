@@ -1,65 +1,38 @@
 import { Injectable } from '@angular/core';
 import { rapport } from '../models/rapport';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map, switchMap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RapportsService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  getAllRapports(): rapport[] {
-    return this.getRapports();
+  getAllRapports(): Observable<rapport[]> {
+    return this.http.get<rapport[]>('http://localhost:3000/rapport');
   }
 
-  getRapportsById(id: number): rapport {
-    const rapport = this.getAllRapports().find(rapport => rapport.id === id);
-    if(rapport){
-      return rapport;
-    } else {
+  getRapportsById(id: number): Observable<rapport> {
+    const rapport = this.http.get<rapport>('http://localhost:3000/rapport/' + id);
+    if(rapport === undefined){
       throw new Error('Rapport introuvable');
+    } else {
+      return rapport;
     }
   }
 
-  getRapports(): rapport[] {
+  addRapport(rapport: rapport): Observable<rapport> {
+    return this.http.post<rapport>('http://localhost:3000/rapport/', rapport);
+  }
 
-    return [
-      {
-        id: 1,
-        nomTechnicien: 'Jean',
-        nomClient: 'Paul',
-        adresseClient: 'Rue de la Paix',
-        marqueModeleChaudiere: 'Chaudière à gaz',
-        dateMiseEnService: new Date(),
-        dateIntervention: new Date(),
-        numeroSerie: '123456789',
-        descriptionIntervention: 'Changement de pièces',
-        tempsPasse: 2
-      },
-      {
-        id: 2,
-        nomTechnicien: 'Jean',
-        nomClient: 'Pierre',
-        adresseClient: 'Rue de la Guerre',
-        marqueModeleChaudiere: 'Chaudière au fioul',
-        dateMiseEnService: new Date(),
-        dateIntervention: new Date(),
-        numeroSerie: '987654321',
-        descriptionIntervention: 'Changement de pièces',
-        tempsPasse: 1
-      },
-      {
-        id: 3,
-        nomTechnicien: 'Anne',
-        nomClient: 'Antoine',
-        adresseClient: 'Rue de la neutralité',
-        marqueModeleChaudiere: 'Chaudière à l\'électricité',
-        dateMiseEnService: new Date(),
-        dateIntervention: new Date(),
-        numeroSerie: '1234589',
-        descriptionIntervention: 'mise en service',
-        tempsPasse: 0.5
-      }
-    ];
+  AddRapport(rapport: rapport): Observable<rapport> {
+    return this.getAllRapports().pipe(
+      map(rapports => [...rapports].sort((a, b) => a.id - b.id)),
+      map(rapports_tries => rapports_tries[rapports_tries.length - 1]),
+      map(rapport_max => (rapport.id = rapport_max.id + 1)),
+      switchMap(() => this.http.post<rapport>('http://localhost:3000/rapport/', rapport)))
   }
 }

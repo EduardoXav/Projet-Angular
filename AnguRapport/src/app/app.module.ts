@@ -10,6 +10,7 @@ import { NewRapportComponent } from './new-rapport/new-rapport.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { ListRapportComponent } from './list-rapport/list-rapport.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     ReactiveFormsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],

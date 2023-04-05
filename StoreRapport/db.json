@@ -1,0 +1,52 @@
+{
+  "rapport": [
+    {
+      "id": 1,
+      "nomTechnicien": "Jean",
+      "nomClient": "Paul",
+      "adresseClient": "Rue de la Paix",
+      "marqueModeleChaudiere": "Chaudière à gaz",
+      "dateMiseEnService": "2023-01-01",
+      "dateIntervention": "2023-01-01",
+      "numeroSerie": "123456789",
+      "descriptionIntervention": "Changement de pièces",
+      "tempsPasse": 2
+    },
+    {
+      "id": 2,
+      "nomTechnicien": "Jean",
+      "nomClient": "Pierre",
+      "adresseClient": "Rue de la Guerre",
+      "marqueModeleChaudiere": "Chaudière au fioul",
+      "dateMiseEnService": "2023-01-01",
+      "dateIntervention": "2023-01-01",
+      "numeroSerie": "987654321",
+      "descriptionIntervention": "Changement de pièces",
+      "tempsPasse": 1
+    },
+    {
+      "id": 3,
+      "nomTechnicien": "Anne",
+      "nomClient": "Antoine",
+      "adresseClient": "Rue de la neutralité",
+      "marqueModeleChaudiere": "Chaudière à l électricité",
+      "dateMiseEnService": "2023-01-01",
+      "dateIntervention": "2023-01-01",
+      "numeroSerie": "1234589",
+      "descriptionIntervention": "mise en service",
+      "tempsPasse": 0.5
+    },
+    {
+      "id": 4,
+      "nomTechnicien": "zaza",
+      "nomClient": "zeze",
+      "adresseClient": "perdu quelque part",
+      "marqueModeleChaudiere": "ASUS",
+      "dateMiseEnService": "2023-04-05",
+      "dateIntervention": "2023-04-04",
+      "numeroSerie": "3872Y",
+      "descriptionIntervention": "Nettoyage",
+      "tempsPasse": 1
+    }
+  ]
+}

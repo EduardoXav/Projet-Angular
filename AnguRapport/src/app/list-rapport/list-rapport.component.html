@@ -1,5 +1,5 @@
 <div class="list-rapport">
-    <ng-container *ngFor="let unRapport of listRapport">
+    <ng-container *ngFor="let unRapport of listRapport$ | async">
         <app-rapport [rapport]="unRapport"></app-rapport>
     </ng-container>
 </div>

@@ -18,7 +18,7 @@ export class RapportComponent implements OnInit{
   ngOnInit(): void {
     const idrapport = this.route.snapshot.params['id'];
     if(idrapport !== undefined){
-      this.theRapport = this.rapportService.getRapportsById(+idrapport);
+      this.rapportService.getRapportsById(+idrapport).subscribe(rapport => this.theRapport = rapport);
     }else{
       this.theRapport = this.rapport;
     }

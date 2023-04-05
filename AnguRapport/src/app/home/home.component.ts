@@ -11,6 +11,6 @@ export class HomeComponent {
   constructor(private router: Router) { }
 
   goToReleves() {
-    this.router.navigateByUrl('/rapports');
+    this.router.navigateByUrl('/releves');
   }
 }
