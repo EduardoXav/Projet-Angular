@@ -4,6 +4,7 @@ import { ListRapportComponent } from './list-rapport/list-rapport.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { HomeComponent } from './home/home.component';
 import { NewRapportComponent } from './new-rapport/new-rapport.component';
+import { CommonModule } from '@angular/common';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule,
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

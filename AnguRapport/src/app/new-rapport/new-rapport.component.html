@@ -2,46 +2,48 @@
     <section class="subForm saisieForm">
         <h2>Nouveau rapport d'intervention</h2>
         <form [formGroup]="formulaire">
-            <div>
+            <div class="form-group">
                 <label for="text">Nom du technicien</label><br>
-                <input type="text" name="nomTechnicien" id="nomTechnicien" formControlName="nomTechnicien">
+                <input type="text" class="form-control" id="nomTechnicien" formControlName="nomTechnicien">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Nom du client</label><br>
-                <input type="text" name="nomClient" id="nomClient" formControlName="nomClient">
+                <input type="text" class="form-control" id="nomClient" formControlName="nomClient">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Adresse du client</label><br>
-                <input type="text" name="adresseClient" id="adresseClient" formControlName="adresseClient">
+                <input type="text" class="form-control" id="adresseClient" formControlName="adresseClient">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Marque et modèle de la chaudière</label><br>
-                <input type="text" name="marqueModeleChaudiere" id="marqueModeleChaudiere"
+                <input type="text" class="form-control" id="marqueModeleChaudiere"
                     formControlName="marqueModeleChaudiere">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Date de mise en service</label><br>
-                <input type="date" name="dateMiseEnService" id="dateMiseEnService" formControlName="dateMiseEnService">
+                <input type="date" class="form-control" id="dateMiseEnService" formControlName="dateMiseEnService">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Date de l'intervention</label><br>
-                <input type="date" name="dateIntervention" id="dateIntervention" formControlName="dateIntervention">
+                <input type="date" class="form-control" id="dateIntervention" formControlName="dateIntervention">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Numéro de série</label><br>
-                <input type="text" name="numeroSerie" id="numeroSerie" formControlName="numeroSerie">
+                <input type="text" class="form-control" id="numeroSerie" formControlName="numeroSerie">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="text">Description de l'intervention</label><br>
-                <textarea name="descriptionIntervention" id="descriptionIntervention" cols="30" rows="10"
+                <textarea class="form-control" id="descriptionIntervention" cols="30" rows="10"
                     formControlName="descriptionIntervention"></textarea>
             </div>
-            <div>
-                <label for="text">Temps passé</label><br>
-                <input type="number" name="tempsPasse" id="tempsPasse" formControlName="tempsPasse">
+            <div class="form-group">
+                <label for="number">Temps passé</label><br>
+                <input type="number" class="form-control" id="tempsPasse" formControlName="tempsPasse">
             </div>
             <br>
-            <button type="submit" (click)="onSubmitForm()">Ajouter le rapport</button>
+            <div class="action-buttons">
+            <button type="submit" class="btn btn-primary" (click)="onSubmitForm()">Ajouter le rapport</button>
+            </div>
         </form>
     </section>
     <section class="vueForm">

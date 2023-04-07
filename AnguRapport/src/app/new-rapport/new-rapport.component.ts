@@ -30,9 +30,11 @@ export class NewRapportComponent implements OnInit {
       dateIntervention: [null, [Validators.required, Validators.minLength(3)]],
       numeroSerie: [null, [Validators.required, Validators.minLength(1)]],
       descriptionIntervention: [null, [Validators.required, Validators.minLength(3)]],
-      tempsPasse: [null, [Validators.required, Validators.minLength(1)]]
+      tempsPasse: [null, [Validators.required, Validators.min(1)]]
     }
-      , { updateOn: 'blur' });
+      , { 
+        updateOn: 'blur' 
+      });
 
     this.currentRapport$ = this.formulaire.valueChanges.pipe(map(formValue => (
       {

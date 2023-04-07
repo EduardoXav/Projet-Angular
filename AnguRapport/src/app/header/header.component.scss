@@ -1,0 +1,39 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        a {
+            margin-left: 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                color: #007bff;
+            }
+
+            &::after {
+                content: " | ";
+                margin-left: 10px;
+                color: #999;
+            }
+
+            &:last-child::after {
+                content: "";
+            }
+        }
+    }
+}

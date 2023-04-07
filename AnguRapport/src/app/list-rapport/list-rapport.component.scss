@@ -1,0 +1,12 @@
+.list-rapport {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 40px;
+
+    app-rapport {
+        width: 400px;
+        margin-bottom: 20px;
+    }
+}

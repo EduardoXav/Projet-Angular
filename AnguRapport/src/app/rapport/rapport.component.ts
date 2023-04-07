@@ -13,7 +13,7 @@ export class RapportComponent implements OnInit{
   @Input() rapport!: rapport;
   theRapport!: rapport;
 
-  constructor(private rapportService: RapportsService, private route:ActivatedRoute) { }
+  constructor(private rapportService: RapportsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const idrapport = this.route.snapshot.params['id'];

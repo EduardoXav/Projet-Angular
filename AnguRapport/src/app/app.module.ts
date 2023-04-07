@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { NewRapportComponent } from './new-rapport/new-rapport.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { ListRapportComponent } from './list-rapport/list-rapport.component';
@@ -16,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     NewRapportComponent,
     RapportComponent,
     ListRapportComponent,
